@@ -1,6 +1,7 @@
 package com.example.user.controller;
 
 import com.example.user.dto.UtilisateurDTO;
+import com.example.user.dto.UtilisateurResponseDTO;
 import com.example.user.entity.Utilisateur;
 import com.example.user.service.UtilisateurService;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,11 @@ public class UtilisateurController {
         return new ResponseEntity<>(utilisateurService.getAllUsers(),HttpStatus.OK);
     }
 
+    @GetMapping("/username/{username}")
+    public ResponseEntity<UtilisateurDTO> getByUsername(@PathVariable(value = "username") String username){
+        return new ResponseEntity<>(utilisateurService.getUserByUsername(username),HttpStatus.OK);
+    }
+
     @GetMapping("{id}")
     public ResponseEntity<UtilisateurDTO> get(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(utilisateurService.getUserById(id),HttpStatus.OK);
@@ -44,14 +50,9 @@ public class UtilisateurController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<UtilisateurDTO> update(@RequestBody UtilisateurDTO utilisateurDTO, @PathVariable(value = "id") Long id){
-        UtilisateurDTO utilisateur = utilisateurService.updateUserById(id,utilisateurDTO);
-        return new ResponseEntity<>(utilisateur,HttpStatus.OK);
-    }
-
-    @GetMapping("/username/{username}")
-    public ResponseEntity<UtilisateurDTO> getByUsername(@PathVariable(value = "username") String username){
-        return new ResponseEntity<>(utilisateurService.getUserByUsername(username),HttpStatus.OK);
+    public ResponseEntity<UtilisateurResponseDTO> update(@RequestBody UtilisateurDTO utilisateurDTO, @PathVariable(value = "id") Long id){
+        UtilisateurResponseDTO utilisateur = utilisateurService.updateUserById(id,utilisateurDTO);
+        return ResponseEntity.ok(utilisateur);
     }
 
 }

@@ -1,9 +1,6 @@
 package com.example.authentification.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,13 +16,15 @@ public class Utilisateur {
     private Long id;
     private String username;
     private String password;
-    private String avatar;
     private String firstname;
     private String lastname;
     private String email;
     private String phone;
+    @Column(name = "isdriver")
     private boolean isDriver;
+    @Column(name = "isadmin")
     private boolean isAdmin;
+    private String avatar;
 
 
     public Utilisateur(String username, String encodePassword) {
@@ -33,14 +32,16 @@ public class Utilisateur {
         this.password = encodePassword;
     }
 
-    public Utilisateur(String username, String password, String firstname, String lastname, String email, String phone, boolean isDriver, boolean isAdmin) {
+    public Utilisateur(String username, String password, String firstname, String lastname, String email, String phone, int isDriver, int isAdmin,String avatar) {
         this.username = username;
+
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
-        this.isDriver = isDriver;
-        this.isAdmin = isAdmin;
+        this.isDriver = isDriver == 1;
+        this.isAdmin = isAdmin == 1;
+        this.avatar = avatar;
     }
 }

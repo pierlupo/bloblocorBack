@@ -8,6 +8,8 @@ import com.example.observation.utils.Mapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/reservation")
 public class ReservationController {
@@ -22,8 +24,8 @@ public class ReservationController {
     }
 
     @GetMapping("")
-    public ResponseEntity<String> get(){
-        return ResponseEntity.ok("test");
+    public ResponseEntity<List<Reservation>> getAll(){
+        return ResponseEntity.ok(reservationService.getAllReservations());
     }
     @PostMapping("")
     public ResponseEntity<Reservation> post(@RequestBody Reservation reservation1){

@@ -46,7 +46,7 @@ public class ObservationController {
     public ResponseEntity<String> post(@RequestBody Observation observation){
         try {
             observationService.createObservation(observation);
-            return ResponseEntity.ok("Observation ajouté");
+            return ResponseEntity.ok("Observation ajoutée");
         }catch (Exception e) {
             return ResponseEntity.status(401).body(null);
         }

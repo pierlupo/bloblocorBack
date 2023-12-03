@@ -14,14 +14,10 @@ import java.util.List;
 @RequestMapping("api/user")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class UtilisateurController {
-
-
    private UtilisateurService utilisateurService;
-
     public UtilisateurController(UtilisateurService utilisateurService) {
         this.utilisateurService = utilisateurService;
     }
-
     @PostMapping("")
     public ResponseEntity<Utilisateur> createUser(@RequestBody Utilisateur utilisateur){
         Utilisateur user = utilisateurService.createUser(utilisateur);
@@ -46,7 +42,7 @@ public class UtilisateurController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> delete(@PathVariable(value = "id") Long id){
         utilisateurService.deleteUserById(id);
-        return new ResponseEntity<>("User deleted succcessfully", HttpStatus.OK);
+        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
     }
 
     @PutMapping("{id}")

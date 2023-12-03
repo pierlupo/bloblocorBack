@@ -27,7 +27,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         this.utilisateurRepository = userRepository;
     }
 
-
     @Override
     public Utilisateur createUser(Utilisateur utilisateur) {
         utilisateurRepository.save(utilisateur);

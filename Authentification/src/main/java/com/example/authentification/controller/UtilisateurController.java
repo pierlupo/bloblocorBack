@@ -1,6 +1,5 @@
 package com.example.authentification.controller;
 
-
 import com.example.authentification.dto.LoginRequestDTO;
 import com.example.authentification.dto.LoginResponseDTO;
 import com.example.authentification.dto.RegisterRequestDTO;
@@ -16,13 +15,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-
-@RequestMapping("/api/auth")
 @RestController
+@RequestMapping("/api/auth")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class UtilisateurController {
     private final AuthenticationManager authenticationManager;
-
     private final UtilisateurService utilisateurService;
     private final PasswordEncoder passwordEncoder;
     private final JWTGenerator generator;
@@ -43,7 +40,6 @@ public class UtilisateurController {
             Utilisateur utilisateur = utilisateurService.trouverParUsername(loginRequestDTO.getUsername());
             return ResponseEntity.ok(LoginResponseDTO.builder().token(generator.generateToken(authentication))
                     .id(utilisateur.getId())
-
                     .username(utilisateur.getUsername())
                     .email(utilisateur.getEmail())
                     .firstname(utilisateur.getFirstname())

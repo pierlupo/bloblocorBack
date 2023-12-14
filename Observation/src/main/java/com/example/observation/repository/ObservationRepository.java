@@ -26,7 +26,7 @@ public interface ObservationRepository extends MongoRepository<Observation,Strin
     })
     Observation searchByNotationMin(@Param("driverId") Long driverId, @Param("clientId") Long clientId);
 
-    Double searchByNotationMoyenne(@Param("driverId") Long driverId, @Param("clientId") Long clientId);
+//    Double searchByNotationMoyenne(@Param("driverId") Long driverId, @Param("clientId") Long clientId);
 
     Integer countObservationByIdDriverOrIdClient(Long driverId,Long clientId);
 

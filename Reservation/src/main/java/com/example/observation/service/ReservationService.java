@@ -14,8 +14,10 @@ import java.util.List;
 @Service
 public class ReservationService {
 
+    @Autowired
     private final ReservationRepository reservationRepository;
 
+    @Autowired
     private final Mapper mapper;
 
 

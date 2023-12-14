@@ -106,15 +106,15 @@ public class ObservationService {
         }
     }
 
-    public Double getByMoyenneNotation(Long userId){
-        RestClient<UserDTO, String> restClientUser = new RestClient<>("http://localhost:8082/api/");
-        UserDTO userDTO = restClientUser.get("user/"+userId, UserDTO.class);
-        if(userDTO != null){
-            return observationRepository.searchByNotationMoyenne(userId,userId);
-        }else {
-            throw new RuntimeException("Not possible");
-        }
-    }
+//    public Double getByMoyenneNotation(Long userId){
+//        RestClient<UserDTO, String> restClientUser = new RestClient<>("http://localhost:8082/api/");
+//        UserDTO userDTO = restClientUser.get("user/"+userId, UserDTO.class);
+//        if(userDTO != null){
+//            return observationRepository.searchByNotationMoyenne(userId,userId);
+//        }else {
+//            throw new RuntimeException("Not possible");
+//        }
+//    }
 
     public Integer getCountNotation(Long userId){
         RestClient<UserDTO, String> restClientUser = new RestClient<>("http://localhost:8082/api/");

@@ -6,8 +6,6 @@ import com.example.observation.service.ObservationService;
 import com.example.observation.utils.Mapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
